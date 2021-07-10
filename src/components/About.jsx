@@ -1,22 +1,28 @@
-import { makeStyles } from '@material-ui/core'
+import { makeStyles, Typography } from '@material-ui/core'
 import React from 'react'
 
 const About = ({title, id, dark}) => {
+    console.log(dark)
     const classes = useStyles()
     return (
         <div className={`${classes.section} ${dark && classes.sectiondark}`}>
-            About
+            <div className={classes.sectioncontent}>
+                <Typography variant="h3">{title}</Typography>
+            </div>
         </div>
     )
 }
 const useStyles = makeStyles((theme) => ({
     section: {
         minHeight: "100vh",
-        background: "red",
     },
     sectiondark: {
         background: "#333",
         color: "#fff",
+    },
+    sectioncontent: {
+        maxWidth: "80vw",
+        margin: "0 auto",
     },
 
 }))

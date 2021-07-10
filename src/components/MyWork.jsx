@@ -1,11 +1,13 @@
-import { makeStyles } from '@material-ui/core'
+import { makeStyles, Typography } from '@material-ui/core'
 import React from 'react'
 
 const MyWork = ({title, id, dark}) => {
     const classes = useStyles();
     return (
          <div className={`${classes.section} ${dark && classes.sectiondark}`}>
-            My Work
+               <div className={classes.sectioncontent}>
+                    <Typography variant="h3">{title}</Typography>
+                </div>
         </div>
     )
 }
@@ -16,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
     sectiondark: {
         background: "#333",
         color: "#fff"
+    },
+    sectioncontent: {
+        maxWidth: "80vw",
+        margin: "0 auto",
     },
 
 }))
