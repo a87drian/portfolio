@@ -1,13 +1,23 @@
-import { makeStyles, Typography } from '@material-ui/core'
+import { makeStyles, Typography, Card, CardMedia, CardContent} from '@material-ui/core'
+import photo from "../Images/pp.jpg";
 import React from 'react'
+
+//2:35
+
 
 const About = ({title, id, dark}) => {
     console.log(dark)
     const classes = useStyles()
     return (
         <div className={`${classes.section} ${dark && classes.sectiondark}`}>
-            <div className={classes.sectioncontent}>
+            <div className={classes.sectioncontent} id={id}>
                 <Typography variant="h3">{title}</Typography>
+                <Card className={classes.card}>
+                    <CardMedia image={photo} className={classes.media} title="picture"/>
+                    <CardContent> 
+                        Contenido tarjeta
+                    </CardContent> 
+                </Card>
             </div>
         </div>
     )
@@ -23,6 +33,19 @@ const useStyles = makeStyles((theme) => ({
     sectioncontent: {
         maxWidth: "80vw",
         margin: "0 auto",
+    },
+    card: { 
+        height: "70vh",
+        display: "flex",
+        marginTop: theme.spacing(6),
+        position: "relative",
+    },
+    media:{
+        width: "250px",
+        height: "auto",
+        objectFit: "cover",
+        borderRadius: "10px",
+        margin: theme.spacing(5)
     },
 
 }))
